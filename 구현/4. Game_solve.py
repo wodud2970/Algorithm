@@ -12,62 +12,50 @@ n,m =  list(map(int,input().split()))
 
 #캐릭터
 x,y,z =list(map(int,input().split()))
-dx = [-1,1,0,0]             #[0,0,-1,1]
-dy = [0,0,-1,1] # L R U D   #[1,-1,0,0]
-move = ['북','남','서','동'] # 북  -북(남)  dx <->dy(서) , -dx -dy(동)
+move = ['북','동','남','서'] # 북  -dx -dy(동)  -북(남) ,  dx <->dy(서)
+# L R U D
+dx = [[0,0,-1,1],[-1,1,0,0],[0,0,1,-1],[1,-1,0,0]]
+dy = [[-1,1,0,0],[0,0,1,-1],[1,-1,0,0],[0,0,-1,1]]
 
 #방향
-
 #맵
 maps = []
 for i in range(n):
     maps.append(list(map(int,input().split())))
-num = 0
+num = 1 #처음 시작부터 카운팅
 #행동
 while True:
-    print('시작')
     # 왼쪽으로 돌기
     if z == 0:
         z = 3
     else:
         z -= 1
     #위치에 방향에 따라 가는곳
-    if z == 0 :
-        dx = [-1,1,0,0]
-        dy = [0,0,-1,1]
-    elif z== 1:
-        dx = [0, 0, -1, 1]
-        dy = [-1, 1, 0, 0]
-    elif z == 2:
-        dx =[1,-1,0,0]
-        dy =[0,0,1,-1]
-    else:
-        dx = [0,0,-1,1]
-        dy = [-1,1,0,0]
+    v = x+ dx[z][2]
+    l = y + dy[z][2]
+    direction =maps[x + dx[z][2]][y + dy[z][2]]
+    maps[x][y] = 1
     #0 이면
     try:
-        if maps[x + dx[2]][y + dy[2]] == 0:
-            nx = x + dx[2]
-            ny = y + dy[2]
+        if maps[x + dx[z][2]][y + dy[z][2]] == 0:
 
-            map[x][y]= 1
-            x,y = nx, ny
+            x = x + dx[z][2]
+            y = y + dy[z][2]
             num += 1
         else:
+            k = 0
+            for i in maps:
+                if [1, 1, 1, 1] == i:
+                    k += 1
+            if k == 4:
+                break
             continue
     except:
         continue
-    k =0
-    for i in maps:
-        if [1,1,1,1] == i:
-            k += 1
-        if k ==4:
-            break
 
+# break 문 빠져나가는 거랑 뒤로 한칸 이동하는거
 print(num)
 
 
-k = sum([[1,2,3],[2,3,4]])
-print(k)
 
 

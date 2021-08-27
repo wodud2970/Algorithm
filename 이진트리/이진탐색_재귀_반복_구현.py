@@ -1,4 +1,4 @@
-# 재귀함수로  구현한 인진 탐색
+# 재귀함수로  구현한 인진 탐색하기
 n, target = map(int, input().split())
 array = list(map(int, input().split()))
 

@@ -2,6 +2,7 @@
 n, target = map(int, input().split())
 array = list(map(int, input().split()))
 
+#재귀로 풀기
 def binary_search(array, target, start, end):
     #없을겨우
     if start > end:  #이거 설정

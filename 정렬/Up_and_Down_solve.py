@@ -1,4 +1,4 @@
-
+#정렬 문제
 n = int(input())
 lst = [int(input()) for _ in range(n)]
 

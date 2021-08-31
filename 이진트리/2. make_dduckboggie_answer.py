@@ -7,7 +7,7 @@ array = list(map(int, input().split()))
 start =  0
 end = max(array)
 
-#이진 탐색 수행(반복적)
+#이진 탐색 수행(반복적) (여러값이 있을때 적용) 아이디어 싸움
 result = 0
 while (start <= end):
     total = 0
@@ -16,9 +16,10 @@ while (start <= end):
         #잘랐을 때의 떡의 양 계산 (자르는 값보다 작으면 자르지 않는다 )
         if x > mid:
             total += x - mid
-    if total < m: #total 값이 m 값보다 작으면 더 많이 나와 줘야하므로  end 값을 땡겨주고
+    if total < m: #total 값이 m 값보다 작으면 더 많이 나와 줘야하므로  end 값을 땡겨주고 (총 나와야하는 갯수)
         end = mid - 1
-    else: #total > m  m값이 total 보다 작을때 result 값을 계산해주고 start 값을 오른쪽으로 땡겨준다  start와 end값이 일치 할때 까지
+    else: #total > m or total  ==  m m값이 total 보다 작을때 result 값을 계산해주고 start 값을 오른쪽으로 땡겨준다  start와 end값이 일치 할때 까지
         result = mid
         start = mid + 1
+
 print(result)

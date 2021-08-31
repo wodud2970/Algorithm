@@ -7,7 +7,7 @@ k =sum(first_array) +  (sum(first_array) // h)
 
 print(k)
 
-#
+#이진 트리 공식 (반복문)
 def binary_search(array, target, start, end):
     while start <= end:
         mid = (start + end) // 2

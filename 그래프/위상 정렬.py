@@ -28,7 +28,7 @@ def topology_sort():
     while q:
         #큐에서 원소 꺼내기
         now = q.popleft()
-        result.append(now)
+        result.append(now) #result에 연결 순서 넣기
         #해당 원소와 연결된 노드들의 진입차수에서 1빼기
         for i in graph[now]: #1에 연결되어 있는거
             indegree[i] -= 1

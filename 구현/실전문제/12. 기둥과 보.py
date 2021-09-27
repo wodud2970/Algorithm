@@ -8,7 +8,7 @@ def possible(answer):
             if y == 0  or [x-1, y, 1] in answer or [x,y,1] in answer or [x,y-1,0] in answer:
                 continue
             else:
-                return False
+                return False #설치가 불가능 할경우 False 반환
         elif stuff == 1: #설치된 것이 보인 경우
             #한 쪽 끝부분이 기둥 위 혹은 양쪽 끝부분이 다른 보와 동시에 연결 이라면 정상
             if[x, y-1, 0] in answer or [x+1, y-1, 0] in answer or ([x-1, y, 1] in answer and [x+1, y, 1] in answer):
@@ -32,5 +32,5 @@ def solution(n, build_frame):
             if not possible(answer): #설치가 가능하지 않으면 다시 제거
                 answer.remove([x, y, stuff])
 
-    return sorted(answer)
+    return sorted(answer) #answer를 정렬후 반환
 

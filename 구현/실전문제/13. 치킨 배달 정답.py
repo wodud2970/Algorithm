@@ -1,3 +1,4 @@
+#조합을 이용
 from itertools import combinations
 
 n, m  = map(int, input().split())

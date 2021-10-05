@@ -7,6 +7,7 @@ for i in range(m):
 graph = [sorted(i)  for i in graph]
 print(graph)
 visited = [False] * (n+1)
+#재귀적인 dfs
 def dfs(graph,v,visited):
     visited[v] =True
     print(v, end=' ')
@@ -16,7 +17,7 @@ def dfs(graph,v,visited):
 
 from collections import deque
 
-
+#stack 을이용한 bfs
 def bfs(graph, s, visited):
     queue = deque([s])
     visited[s] = True

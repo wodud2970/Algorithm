@@ -1,6 +1,6 @@
 #DFS 혹은 BFS를 이용하여 문제를 해결할 수 있다
 # 중복순열을 이용하여 푸는 방법
-from itertools import product
+from itertools import product #순열을 이용하여 풀어도된다
 n = 4
 print(product(['+', '-', '*', '/'], repeat = (n-1))) #내가 푼 방법
 print(list(product(['+', '-', '*', '/'], repeat = (n-1))))

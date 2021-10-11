@@ -1,4 +1,4 @@
-from colllections import deque
+from collections import deque
 #알고리즘 체크
 print(-1 %4 )
 print(1 % 4)

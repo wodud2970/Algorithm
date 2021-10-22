@@ -24,7 +24,7 @@ while(start <= end):
     if count >= c: #C개 이상의 공유기를 설치할 수 있는 경우, 거리를 증가
         start = mid + 1
         result = mid#최적의 결과를 저장
-    else: #C개 이상의 고융기를 설치할 수 없는 경우 거리를 감소 #count가 c보다 작을때 
+    else: #C개 이상의 고융기를 설치할 수 없는 경우 거리를 감소 #count가 c보다 작을때
         end = mid - 1 #end 7
 
 print(result)

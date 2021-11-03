@@ -12,12 +12,10 @@
 # for q in queries:
 #     print(count_by_range(words,  q.replace('?','a'), q.replace('?','z')))
 
-n, m = map(int, input().split())
-lst = [1, 3, 3, 2, 2, 1, 4, 1, 0, 6, 4, 7]
-maps =[]
-for j in range(n):
-    k = j * m
-    maps.append(lst[j* m:j*m + m])
 
 
-print(maps)
+options = {'lol': 'happy',
+           'love': 'me'
+           }
+print(options.keys(), options.values())
+print(options)

@@ -9,7 +9,7 @@ print(graph)
 visited = [False] * (n+1)
 #재귀적인 dfs
 def dfs(graph,v,visited):
-    visited[v] =True
+    visited[v] =True #같던곳을 -1
     print(v, end=' ')
     for i in graph[v]:
         if not visited[i]:
@@ -19,9 +19,8 @@ from collections import deque
 
 #stack 을이용한 bfs
 def bfs(graph, s, visited):
-    queue = deque([s])
+    queue = deque([s]) #리스트형식으로 시작해서 그렇구만
     visited[s] = True
-
     while queue:
         v = queue.popleft()
         print(v, end = ' ')

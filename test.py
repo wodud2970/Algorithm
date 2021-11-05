@@ -19,3 +19,12 @@ options = {'lol': 'happy',
            }
 print(options.keys(), options.values())
 print(options)
+
+lst = [1,2,3]
+
+def change(lst):
+    lst.append(1)
+
+print(lst)
+change(lst)
+print(lst)

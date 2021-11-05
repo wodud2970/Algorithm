@@ -48,12 +48,12 @@ def move_all_fishes(array, now_x, now_y):
                 #해당 방향으로 이동이 가능하다면 이동시키기
                 #맵에서 벗어 나지않고
                 if 0<=nx and nx < 4 and 0<=ny and ny < 4:
-                    #이동했을때 now_x, now_y가 아니면
+                    #이동했을때 now_x, now_y가 아니면 (즉 같은 자리가 아니면)
                     if not (nx == now_x and ny == now_y):
-                        array[x][y][1] =direction
-                        array[x][y], array[nx][ny] = array[nx][ny], array[x][y]
-                        break
-                direction = turn_left(direction)
+                        array[x][y][1] = direction #현재 물고기위 방향이 바뀌고
+                        array[x][y], array[nx][ny] = array[nx][ny], array[x][y] #자리를 바꾸어준다
+                        break #자리를 한번 바꿔기때문에 break
+                direction = turn_left(direction) #같은 위치 일때는 방향을 바꾸어준다 8번바뀌면 종료
 
 #상어가 현재 위치에서 먹을 수 있는 모든 물고기의
 def get_possible_positions(array, now_x, now_y):
@@ -61,7 +61,7 @@ def get_possible_positions(array, now_x, now_y):
     direction = array[now_x][now_y][1]
     #현재 방향으로 계속이동시키기
     for i in range(4):
-        #이게 방향으로 이동시키는 거구나
+        #이게 똑같은 한 방향으로 이동시키는 거구나  1 ~ 4 번 계속 이동 (이동할때마다)
         now_x += dx[direction]
         now_y += dy[direction]
         #범위를 벗어나지 않는지 확인하며
@@ -70,21 +70,22 @@ def get_possible_positions(array, now_x, now_y):
             #물고기가 존재하는 경우
             if array[now_x][now_y] != -1:
                 positions.append((now_x, now_y))
+
     return positions
 
-#모든 경우를 탐색하기 위한 DFS 함수
+#모든 경우를 탐색하기 위한 DFS 함수ㄹ
 def dfs(array, now_x, now_y, total):
     global result
     array = copy.deepcopy(array) #리스트를 통째로 복사 .copy 써도 될텐데
     total += array[now_x][now_y][0] #현재 위치의 물고기 먹기
     array[now_x][now_y][0] = -1 #물고기를 먹었으면 번호 값을  -1로두어 없는 상태로 전환
-    move_all_fishes(array, now_x, now_y) #전체 물고기 이동시키기
-
+    move_all_fishes(array, now_x, now_y) #전체 물고기 이동시키기 #이거 적용되나 아마도 전역변수 취급받아서 되긴할듯
+    #갈수있는 위치 설정
     positions = get_possible_positions(array, now_x, now_y)
 
     #이동할 수 있는 위치가 하나도 없다면 종료
     if len(positions) == 0:
-        result = max(result, total) #최대 값을 저장
+        result = max(result, total) #최대 값을 저장 #마지막에 넣어줄려고 놔뒀구나 왜 max쓰지? 그냥 토탈 써도 될텐데
         return
     #모든 이동할 수 있는 위치로 재귀적으로 수행
     for next_x, next_y in positions:

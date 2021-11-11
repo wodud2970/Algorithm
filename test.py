@@ -11,20 +11,5 @@
 # queries = ['fro??', '????o', 'fr???', 'fro???','pro?']
 # for q in queries:
 #     print(count_by_range(words,  q.replace('?','a'), q.replace('?','z')))
-
-
-
-options = {'lol': 'happy',
-           'love': 'me'
-           }
-print(options.keys(), options.values())
-print(options)
-
-lst = [1,2,3]
-
-def change(lst):
-    lst.append(1)
-
-print(lst)
-change(lst)
-print(lst)
+lst = [1]
+print(type(sum(lst)))
